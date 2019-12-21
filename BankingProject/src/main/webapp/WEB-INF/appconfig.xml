@@ -11,12 +11,12 @@
   http://www.springframework.org/schema/tx/spring-tx.xsd">
   
   <!-- Loading Annotated Beans -->
-  <context:component-scan base-package="com.lti.controller, com.lti.repository, com.lti.service" />
+  <context:component-scan base-package="com.bank.controller, com.bank.repository, com.bank.services" />
   
   <!-- DataSource configuration -->
   <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
   <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-  <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
+  <property name="url" value="jdbc:oracle:thin:@192.168.12.129:1521:XE" />
   <property name="username" value="banking" />
   <property name="password" value="banking" />
   
@@ -32,7 +32,7 @@
    -->
    <bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
     <property name="dataSource" ref="ds" /> <!-- DataSource/Database setting -->
-    <property name="packagesToScan" value="com.lti.entity" />
+    <property name="packagesToScan" value="com.bank.entity" />
     <property name="jpaVendorAdapter">
         <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
     </property>
