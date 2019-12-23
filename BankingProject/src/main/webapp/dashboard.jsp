@@ -10,16 +10,61 @@
 </head>
 <body>
 <div class="Mainheader">
-<img src="lti_logo.png">
+<img src="images/lti_logo.png">
 </div>
+<div class="mainContent">
 <div class="leftsidenav">
-<div class="navOptions"><a href="accountDetail.jsp">AccountDetail</a></div>
-<div class="navOptions"><a href="accountSummary.jsp">AccountSummary</a></div>
+<div class="navOptions"><a href="accountDetail.jsp">Account Detail</a></div>
+<div class="navOptions"><a href="accountSummary.jsp">Account Summary</a></div>
 <div class="navOptions"><a href="fundTransfer.jsp">Fund Transfer</a></div>
-<div class="navOptions"><a href="AccountStatement.jsp">AccountStatement</a></div>
+<div class="navOptions"><a href="AccountStatement.jsp">Account Statement</a></div>
 </div>
 <div class="rightsidenav">
-
+<div class="navbar">
+  <a href="#home">Account Statement</a>
+  <div class="dropdown">
+    <button class="dropbtn">Fund Transfer 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">IMPS</a>
+      <a href="#">NEFT</a>
+      <a href="#">RTGS</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">User Profile 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">Change UserId Password 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
+</div>
+<div class="content">
+<h1>Welcome to <b>HERA PHERI BANK</b></h1>
+<p>HHHHHHHHHHHHHHHHHHHH</p>
+<p>EEEEEEEEEEEEEEEEEEEE</p>
+<p>LLLLLLLLLLLLLLLLLLLL</p>
+<p>LLLLLLLLLLLLLLLLLLLL</p>
+<p>OOOOOOOOOOOOOOOOOOOO</p>
+</div>
+</div>
+</div>
+<div class="footer">
+  <p>&copy; copyright by <b>HERI PHERI BANK</b></p>
 </div>
 </body>
 </html>
