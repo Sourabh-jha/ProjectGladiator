@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Account Details</title>
 <link rel="stylesheet" href="style/styles.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 input{
@@ -16,6 +17,9 @@ border: 1px solid #f1f1f1;
 }
 .tdWidth{
 width: 150px;
+}
+.content{
+margin-top: 0;
 }
 </style>
 </head>
@@ -66,28 +70,36 @@ width: 150px;
 </div>
 <div class="content">
 <h2>Initiate NEFT Payment</h2>
+<form action="neft.lti" method="post">
 <table class="detailTable">
 <tr>
 <td class="tdWidth">From Account</td>
-<td><input type="text" name="fromAccount"></td>
+<td colspan="2"><input type="text" name="fromAccount" value=""></td>
 </tr>
 <tr>
 <td class="tdWidth">To Account</td>
 <td><input type="text" name="toAccount"></td>
+<td style="width:150px;"><button><i class="fa fa-plus" aria-hidden="true"></i> Add Account</button></td></td>
 </tr>
 <tr>
 <td class="tdWidth">Amount</td>
-<td><input type="number" name="Amount"></td>
+<td colspan="2"><input type="number" name="amount"></td>
 </tr>
 <tr>
 <td class="tdWidth">Transaction Date</td>
-<td><input type="date" name="transDate"></td>
+<td colspan="2"><input type="date" name="transDate"></td>
 </tr>
 <tr>
 <td class="tdWidth">Remark</td>
-<td><input type="text" name="remark"></td>
+<td colspan="2"><input type="text" name="remark"></td>
 </tr>
 </table>
+<p><b>Please note:</b></p>
+<p>Transactions will be executed on the next working day if they are scheduled for Sundays, National Holidays, NEFT Holidays(as declared by RBI)</p>
+<p>Timing for NEFT: Monday-Saturday(except 2nd and 4th Saturday)6.00AM to 6.30PM</p>
+<button type="reset">Reset</button>
+<button type="submit">Transfer</button>
+</form>
 </div>
 </div>
 </div>
