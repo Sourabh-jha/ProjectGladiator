@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bank.entity.Transactions;
 import com.bank.services.TransactionsService;
@@ -16,11 +17,11 @@ public class TransactionsController {
 	private TransactionsService transactionService;
 
 	@RequestMapping(path = "/neft.lti", method = RequestMethod.POST)
-	public String neftTransfer(Transactions transaction, ModelMap model) {
+	public String neftTransfer(Transactions transaction, @RequestParam("toAccount") int toAccount ,ModelMap model) {
 		transaction.setTransMode("NEFT");
 		transaction.setApproved("NO");
 		
-		boolean check = transactionService.checkBene(transaction);
+		boolean check = transactionService.checkBene(toAccount);
 		if(check) {
 			boolean msg = transactionService.neftTransfer(transaction);
 			

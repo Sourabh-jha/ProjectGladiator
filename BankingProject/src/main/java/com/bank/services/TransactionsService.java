@@ -16,8 +16,8 @@ public class TransactionsService {
 		return transactionRepo.neftTransfer(transaction);
 	}
 	
-	public boolean checkBene(Transactions transaction) {
-		return transactionRepo.checkBene(transaction);
+	public boolean checkBene(int toAccount) {
+		return transactionRepo.checkBene(toAccount);
 	}
 	
 }

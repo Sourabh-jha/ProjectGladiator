@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.bank.entity.Transactions;
+import com.bank.entity.UserDetails;
 
 @Repository
 public class TransactionsRepository {
@@ -24,12 +25,11 @@ public class TransactionsRepository {
 		}
 	}
 	
-	public boolean checkBene(Transactions transaction) {
-		int accNo = transaction.getToAccount();
+	public boolean checkBene(int toAccount) {
 		Query q = entityManager.createQuery("select b from Beneficiary b where b.transID=:id");
-		q.setParameter("em", accNo);
-		boolean bool = (UserDetails)q.getSingleResult();
-		if(bool) {
+		q.setParameter("em", toAccount);
+		
+		if((UserDetails)q.getSingleResult() != null) {
 			return true;
 		}
 		else {

@@ -69,6 +69,7 @@ margin-top: 0;
   </div>
 </div>
 <div class="content">
+<p>${ NEFT }</p>
 <h2>Initiate NEFT Payment</h2>
 <form action="neft.lti" method="post">
 <table class="detailTable">
