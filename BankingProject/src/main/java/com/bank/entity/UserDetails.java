@@ -1,17 +1,14 @@
 package com.bank.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,11 +16,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="USER_DETAILS")
-public class UserDetails {
+public class UserDetails implements Serializable {
 
 @Id
-@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "accountNo_seq")
-@SequenceGenerator(sequenceName = "accountNo_seq", name = "ACCOUNTNO_SEQ", allocationSize = 1)
 @Column(name="ACCOUNTNO")
 private int accountNo;
 
@@ -56,7 +51,7 @@ private long aadharNo;
 private LocalDate dob;
 
 @Column(name="INCOME")
-private double income;
+private int income;
 
 @ManyToOne
 @JoinColumn(name="USERNAME")
@@ -156,11 +151,11 @@ public void setDob(LocalDate dob) {
 this.dob = dob;
 }
 
-public double getIncome() {
+public int getIncome() {
 return income;
 }
 
-public void setIncome(double income) {
+public void setIncome(int income) {
 this.income = income;
 }
 

@@ -75,11 +75,11 @@ margin-top: 0;
 <table class="detailTable">
 <tr>
 <td class="tdWidth">From Account</td>
-<td colspan="2"><input type="text" name="fromAccount" value=""></td>
+<td colspan="2"><input type="number" name="fromAccountNo" value=""></td>
 </tr>
 <tr>
 <td class="tdWidth">To Account</td>
-<td><input type="text" name="toAccount"></td>
+<td><input type="number" name="toAccountNo"></td>
 <td style="width:150px;"><button><i class="fa fa-plus" aria-hidden="true"></i> Add Account</button></td></td>
 </tr>
 <tr>

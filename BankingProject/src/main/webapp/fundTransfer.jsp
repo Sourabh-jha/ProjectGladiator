@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -53,6 +53,9 @@
     </div>
   </div>
 </div>
+
+<h2>${ TransferMessage }</h2>
+
 <div class="content">
 <a href="neft.jsp"><button class="transferOptBtn"><b>NEFT</b></button></a>
 <a href="#"><button class="transferOptBtn"><b>IMPS</b></button></a>

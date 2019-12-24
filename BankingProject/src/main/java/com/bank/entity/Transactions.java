@@ -4,12 +4,9 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -17,20 +14,16 @@ import javax.persistence.Table;
 public class Transactions {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transactionID")
-	@SequenceGenerator(name = "transactionID", sequenceName = "TRANSACTIONID_SEQ", allocationSize = 10)
 	@Column(name = "TRANSACTIONID")
 	private int transID;
 	
 	@ManyToOne
 	@JoinColumn(name = "FROMACCOUNTNO")
-	UserDetails fromAccount;
-//	private int fromAccount;
+	private UserDetails fromAccount;
 	
 	@ManyToOne
 	@JoinColumn(name = "TOACCOUNTNO")
-	UserDetails toAccount;
-//	private int toAccout;
+	private UserDetails toAccount;
 	
 	@Column(name = "TRANSACTIONDATE")
 	private LocalDate transDate;
@@ -46,7 +39,7 @@ public class Transactions {
 
 	@Column(name = "APPROVED")
 	private String approved;
-	
+
 	public int getTransID() {
 		return transID;
 	}
@@ -69,14 +62,6 @@ public class Transactions {
 
 	public void setToAccount(UserDetails toAccount) {
 		this.toAccount = toAccount;
-	}
-
-	public String getApproved() {
-		return approved;
-	}
-
-	public void setApproved(String approved) {
-		this.approved = approved;
 	}
 
 	public LocalDate getTransDate() {
@@ -110,6 +95,16 @@ public class Transactions {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+
+	public String getApproved() {
+		return approved;
+	}
+
+	public void setApproved(String approved) {
+		this.approved = approved;
+	}
+	
+	
 	
 	
 	
