@@ -1,5 +1,7 @@
+<%@page import="com.bank.entity.Transactions"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,34 +9,8 @@
 <title>Account Details</title>
 <link rel="stylesheet" href="style/styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-.submitbtn{
-margin-top: 10px;
-padding: 10px;
-border: 1px solid #f1f1f1;
-border-radius: 5px;
-background-color: #292e7d;
-color: #f1f1f1;
-cursor: pointer;
-}
-</style>
 </head>
 <body>
-<%@page import="java.io.*, java.util.*, java.sql.*"%>
-<%!
-private Connection conn = null;
-public void jspInit(){
-	try {
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "banking", "banking");
-	System.out.println("Connected:" + conn);
-	} catch (ClassNotFoundException e) {
-	System.err.println("ShowLogin_Servlet->unable to load the JDBC Driver...");
-	} catch (SQLException e) {
-	System.err.println("ShowLogin_Servlet->unable to establish the database connection...");
-	}
-}
-%>
 <div class="Mainheader">
 <img src="images/lti_logo.png">
 </div>
@@ -80,42 +56,22 @@ public void jspInit(){
   </div>
 </div>
 <div class="content">
-<form action="accountSummary.lti" method="post">
 <table class="detailTable">
 <tr>
-<th>Account Number</th>
-<th>Balance</th>
-<th>Recent Transactions</th>
+<th>From Account</th>
+<th>To Account</th>
+<th>Amount</th>
+<th>Transaction Date</th>
 </tr>
-<%
-String SQL = "SELECT * FROM USER_DETAILS";
-StringBuffer strHTML = new StringBuffer();
-
-try {
-PreparedStatement pstat = conn.prepareStatement(SQL);
-
-ResultSet rs = pstat.executeQuery();
-while (rs.next()) {
-int accNo = rs.getInt("ACCOUNTNO");
-int bal = rs.getInt("BALANCE");
-%>
+<c:forEach items="${previousTransactions}" var="transaction" begin = "1" end = "10">
 <tr>
-<td><%= accNo %></td>
-<td><%= bal %></td>
-<td><input type="radio" name="accountNo" value="<%= accNo %>"></td>
+<td>${ transaction.getFromAccount().getAccountNo() }</td>
+<td>${ transaction.getToAccount().getAccountNo() }</td>
+<td>${ transaction.getAmount() }</td>
+<td>${ transaction.getTransDate() }</td>
 </tr>
-<%
-}
-%>
-<%
-rs.close();
-} catch (SQLException e) {
-e.printStackTrace();
-}
-%>
+</c:forEach>
 </table>
-<input class="submitbtn" type="submit" value="click for previous 10 transactions">
-</form>
 </div>
 </div>
 </div>

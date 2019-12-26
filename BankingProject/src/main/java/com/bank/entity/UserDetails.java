@@ -1,6 +1,5 @@
 package com.bank.entity;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -16,7 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="USER_DETAILS")
-public class UserDetails implements Serializable {
+public class UserDetails {
 
 @Id
 @Column(name="ACCOUNTNO")
@@ -58,17 +57,22 @@ private int income;
 Login username;
 
 @Column(name="NETBANKING")
-private boolean netBanking;
+private String netBanking;
+
+@Column(name= "BALANCE")
+private int balance;
 
 @Column(name= "APPROVED")
-private boolean approved;
+private String approved;
 
-public boolean isApproved() {
-return approved;
+
+
+public int getBalance() {
+	return balance;
 }
 
-public void setApproved(boolean approved) {
-this.approved = approved;
+public void setBalance(int balance) {
+	this.balance = balance;
 }
 
 public int getAccountNo() {
@@ -167,35 +171,22 @@ public void setUsername(Login username) {
 	this.username = username;
 }
 
-public boolean isNetBanking() {
+public String getNetBanking() {
 	return netBanking;
 }
 
-public void setNetBanking(boolean netBanking) {
+public void setNetBanking(String netBanking) {
 	this.netBanking = netBanking;
 }
 
-
- 
-
-/*public Address getAddress() {
-return address;
+public String getApproved() {
+	return approved;
 }
 
- 
-
-public void setAddress(Address address) {
-this.address = address;
+public void setApproved(String approved) {
+	this.approved = approved;
 }
 
- 
-
-@OneToMany(mappedBy="address")
-private Address address;*/
-
-
-
- 
 
 
 }
