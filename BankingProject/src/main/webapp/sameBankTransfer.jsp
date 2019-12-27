@@ -6,16 +6,20 @@
 <meta charset="ISO-8859-1">
 <title>Account Details</title>
 <link rel="stylesheet" href="style/styles.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-.submitbtn{
-margin-top: 10px;
-padding: 10px;
+input{
+width: 100%;
+height: 25px;
+border-radius: 3px;
 border: 1px solid #f1f1f1;
-border-radius: 5px;
-background-color: #292e7d;
-color: #f1f1f1;
-cursor: pointer;
+}
+.tdWidth{
+width: 150px;
+}
+.content{
+margin-top: 0;
 }
 </style>
 </head>
@@ -41,8 +45,8 @@ public void jspInit(){
 <div class="mainContent">
 <div class="leftsidenav">
 <div class="navOptions"><a href="accountDetail.jsp" >Account Detail</a></div>
-<div class="navOptions" style="background-color: #292e7d; border-radius: 5px; border: 1px solid #f1f1f1;"><a href="accountSummary.jsp" style="color: #f1f1f1;">Account Summary</a></div>
-<div class="navOptions"><a href="fundTransfer.jsp">Fund Transfer</a></div>
+<div class="navOptions"><a href="accountSummary.jsp">Account Summary</a></div>
+<div class="navOptions" style="background-color: #292e7d; border-radius: 5px; border: 1px solid #f1f1f1;"><a href="fundTransfer.jsp" style="color: #f1f1f1;">Fund Transfer</a></div>
 <div class="navOptions"><a href="accountStatement.jsp">Account Statement</a></div>
 </div>
 <div class="rightsidenav">
@@ -80,15 +84,23 @@ public void jspInit(){
   </div>
 </div>
 <div class="content">
-<form action="accountSummary.lti" method="post">
+<h2>Initiate Payment</h2>
+<form action="fundTransafer.lti" method="post" id="fundTransfer">
 <table class="detailTable">
 <tr>
-<th>Account Number</th>
-<th>Balance</th>
-<th>Recent Transactions</th>
+<td class="tdWidth">Mode</td>
+<td colspan="2"><input type="text" name="transferMode" value="WithinBank" readonly></td>
 </tr>
+<tr>
+<td class="tdWidth">From Account</td>
+<td colspan="2"><input type="number" name="fromAccountNo"></td>
+</tr>
+<tr>
+<td class="tdWidth">To Account</td>
+<td>
+<select name="toAccountNo" style="width: 100%;">
 <%
-String SQL = "SELECT * FROM USER_DETAILS";
+String SQL = "SELECT * FROM BENEFICIARY";
 StringBuffer strHTML = new StringBuffer();
 
 try {
@@ -96,14 +108,10 @@ PreparedStatement pstat = conn.prepareStatement(SQL);
 
 ResultSet rs = pstat.executeQuery();
 while (rs.next()) {
-int accNo = rs.getInt("ACCOUNTNO");
-int bal = rs.getInt("BALANCE");
+int accNo = rs.getInt("BENEFICIARYACCOUNTNO");
+String holderName = rs.getString("USERNAME");
 %>
-<tr>
-<td><%= accNo %></td>
-<td><%= bal %></td>
-<td><input type="radio" name="accountNo" value="<%= accNo %>"></td>
-</tr>
+<option value="<%= accNo %>" style="width: 100%;"><%= accNo %> (<%= holderName %>)</option>
 <%
 }
 %>
@@ -112,9 +120,23 @@ rs.close();
 } catch (SQLException e) {
 e.printStackTrace();
 }
+out.println(strHTML.toString());
 %>
+</select>
+</td>
+<td style="width:150px;"><button><i class="fa fa-plus" aria-hidden="true"></i> Add Account</button></td>
+</tr>
+<tr>
+<td class="tdWidth">Amount</td>
+<td colspan="2"><input type="number" name="amount"></td>
+</tr>
+<tr>
+<td class="tdWidth">Remark</td>
+<td colspan="2"><textarea name="remark" style="width: 100%;" form="fundTransfer"></textarea></td>
+</tr>
 </table>
-<input class="submitbtn" type="submit" value="click for previous 10 transactions">
+<button type="reset">Reset</button>
+<button type="submit">Transfer</button>
 </form>
 </div>
 </div>

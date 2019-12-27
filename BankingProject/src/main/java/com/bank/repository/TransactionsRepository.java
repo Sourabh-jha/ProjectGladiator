@@ -1,5 +1,8 @@
 package com.bank.repository;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,34 +18,73 @@ public class TransactionsRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+	Transactions trans = null;
 	
 	@Transactional
-	public boolean fundTransfer(Transactions transaction) {
+	public Transactions fundTransfer(Transactions transaction) {
 		try {
-		entityManager.merge(transaction);
-		return true;
+			trans = entityManager.merge(transaction);
+			return trans;
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 	}
 	
-//	public boolean checkBene(int toAccount) {
-//		System.out.println("Repo-> checkbean");
-//		Query q = entityManager.createQuery("select u from UserDetails u where u.accountNo=:id");
-//		q.setParameter("id", toAccount);
-//		
-//		if((UserDetails)q.getSingleResult() != null) {
-//			return true;
-//		}
-//		else {
-//			return false;
-//		}
-//	}
+	public Transactions extractLastTransaction() {
+		Query q = entityManager.createQuery("select t from Transactions t");
+		List<Transactions> lastTrans = q.getResultList();
+		int length = lastTrans.size()-1;
+		return lastTrans.get(length);
+	}
+
+
+	@Transactional
+	public void modifyChanges(UserDetails modify) {
+		try {
+		entityManager.merge(modify);		
+		}catch(Exception e) {
+			System.out.println("Error is here...");
+			e.printStackTrace();
+		}
+	}
+	
 	public UserDetails fetchAccount(int accountNo) {
 		UserDetails acc = entityManager.find(UserDetails.class, accountNo);
 		return acc;
 	}
+
+	public List<Transactions> fetchPreviousTransactions(int accountNo) {
+		try {
+		UserDetails userDetails = entityManager.find(UserDetails.class, accountNo);
+		Query q = entityManager.createQuery("select t from Transactions t where t.fromAccount=:an or t.toAccount=:ta");
+		q.setParameter("an", userDetails);
+		q.setParameter("ta", userDetails);
+		List<Transactions> previousTrans = q.getResultList();
+		return previousTrans;
+		}catch(Exception e) {
+			System.out.println("Error idhar hai bro!!!");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public List<Transactions> fetchTransactionsViaDate(LocalDate fromDate, LocalDate toDate, int accountNo) {
+		try {
+			UserDetails userDetails = entityManager.find(UserDetails.class, accountNo);
+			Query q = entityManager.createQuery("select t from Transactions t where t.fromAccount=:an and t.transDate BETWEEN TO_DATE (:fd, 'dd/mm/yy') AND TO_DATE (:td, 'dd/mm/yy')");
+			q.setParameter("an", userDetails);
+			q.setParameter("fd", fromDate);
+			q.setParameter("td", toDate);
+			List<Transactions> previousTrans = q.getResultList();
+			return previousTrans;
+			}catch(Exception e) {
+				System.out.println("Error idhar hai bro!!!");
+				e.printStackTrace();
+			}
+			return null;
+	}
+	
 	
 }

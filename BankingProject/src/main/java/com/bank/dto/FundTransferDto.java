@@ -2,11 +2,18 @@ package com.bank.dto;
 
 public class FundTransferDto {
 
+	private String transferMode;
 	private int fromAccountNo;
 	private int toAccountNo;
 	private int amount;
 	private String remark;
 	
+	public String getTransferMode() {
+		return transferMode;
+	}
+	public void setTransferMode(String transferMode) {
+		this.transferMode = transferMode;
+	}
 	public int getFromAccountNo() {
 		return fromAccountNo;
 	}

@@ -8,7 +8,33 @@
 <link rel="stylesheet" href="style/styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<style>
+.submitbtn{
+margin-top: 10px;
+padding: 10px;
+border: 1px solid #f1f1f1;
+border-radius: 5px;
+background-color: #292e7d;
+color: #f1f1f1;
+cursor: pointer;
+}
+</style>
 <body>
+<%@page import="java.io.*, java.util.*, java.sql.*"%>
+<%!
+private Connection conn = null;
+public void jspInit(){
+	try {
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "banking", "banking");
+	System.out.println("Connected:" + conn);
+	} catch (ClassNotFoundException e) {
+	System.err.println("ShowLogin_Servlet->unable to load the JDBC Driver...");
+	} catch (SQLException e) {
+	System.err.println("ShowLogin_Servlet->unable to establish the database connection...");
+	}
+}
+%>
 <div class="Mainheader">
 <img src="images/lti_logo.png">
 </div>
@@ -54,24 +80,48 @@
   </div>
 </div>
 <div class="content">
-<form action="#">
-From Date: <input type="date" name="fromDate">
-To Date: <input type="date" name="toDate"><br /><br />
+<form action="accountStatement.lti" method="post">
+From Date: <input type="date" name="fromDate" required>
+To Date: <input type="date" name="toDate" required><br /><br />
 <table class="detailTable">
 <tr>
+<th>Select</th>
 <th>Account Number</th>
 <th>Account Name</th>
 <th>Account Type</th>
 <th>Balance</th>
 </tr>
-<tr>
-<td>202132130</td>
-<td>Aadarsh</td>
-<td>Savings</td>
-<td>10000</td>
-</tr>
+<%
+String SQL = "SELECT * FROM USER_DETAILS";
+StringBuffer strHTML = new StringBuffer();
 
+try {
+PreparedStatement pstat = conn.prepareStatement(SQL);
+
+ResultSet rs = pstat.executeQuery();
+while (rs.next()) {
+int accNo = rs.getInt("ACCOUNTNO");
+int bal = rs.getInt("BALANCE");
+String name = rs.getString("FNAME");
+%>
+<tr>
+<td><input type="radio" name="accountNo" value="<%= accNo %>"></td>
+<td><%= accNo %></td>
+<td><%= name %></td>
+<td>Savings</td>
+<td><%= bal %></td>
+</tr>
+<%
+}
+%>
+<%
+rs.close();
+} catch (SQLException e) {
+e.printStackTrace();
+}
+%>
 </table>
+<input class="submitbtn" type="submit" value="Get Statement">
 </form>
 </div>
 </div>

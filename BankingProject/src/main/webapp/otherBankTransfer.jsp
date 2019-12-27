@@ -57,8 +57,9 @@
 <h2>${ TransferMessage }</h2>
 
 <div class="content">
-<a href="sameBankTransfer.jsp"><button class="transferOptBtn"><b>Quick Transfer</b></button></a>
-<a href="otherBankTransfer.jsp"><button class="transferOptBtn"><b>Business</b></button></a>
+<a href="neft.jsp"><button class="transferOptBtn"><b>NEFT</b></button></a>
+<a href="imps.jsp"><button class="transferOptBtn"><b>IMPS</b></button></a>
+<a href="rtgs.jsp"><button class="transferOptBtn"><b>RTGS</b></button></a>
 </div>
 </div>
 </div>
