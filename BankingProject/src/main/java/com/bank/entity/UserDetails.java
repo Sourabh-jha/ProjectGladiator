@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="USER_DETAILS")
-public class UserDetails implements Serializable {
+public class UserDetails{
 
 @Id
 @Column(name="ACCOUNTNO")
@@ -58,18 +58,15 @@ private int income;
 Login username;
 
 @Column(name="NETBANKING")
-private boolean netBanking;
+private String netBanking;
 
 @Column(name= "APPROVED")
-private boolean approved;
+private String approved;
 
-public boolean isApproved() {
-return approved;
-}
+@Column(name = "OCCUPATION")
+private String occupation;
 
-public void setApproved(boolean approved) {
-this.approved = approved;
-}
+
 
 public int getAccountNo() {
 return accountNo;
@@ -167,12 +164,28 @@ public void setUsername(Login username) {
 	this.username = username;
 }
 
-public boolean isNetBanking() {
+public String getNetBanking() {
 	return netBanking;
 }
 
-public void setNetBanking(boolean netBanking) {
+public void setNetBanking(String netBanking) {
 	this.netBanking = netBanking;
+}
+
+public String getApproved() {
+	return approved;
+}
+
+public void setApproved(String approved) {
+	this.approved = approved;
+}
+
+public String getOccupation() {
+	return occupation;
+}
+
+public void setOccupation(String occupation) {
+	this.occupation = occupation;
 }
 
 
