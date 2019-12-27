@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="Mainheader">
-<img src="lti_logo.png">
+<img src="images/lti_logo.png">
 </div>
 <div class="mainContent">
 <div class="leftsidenav">
@@ -53,12 +53,38 @@
     </div>
   </div>
 </div>
-
-<h2>${ TransferMessage }</h2>
-
 <div class="content">
-<a href="sameBankTransfer.jsp"><button class="transferOptBtn"><b>Quick Transfer</b></button></a>
-<a href="otherBankTransfer.jsp"><button class="transferOptBtn"><b>Business</b></button></a>
+<h2>Transfer Successful</h2>
+<table class="detailTable">
+<tr>
+<td class="tdWidth">Reference Id</td>
+<td colspan="2">${ transaction.getTransID() }</td>
+</tr>
+<tr>
+<td class="tdWidth">Mode</td>
+<td colspan="2">${ transaction.getTransMode() }</td>
+</tr>
+<tr>
+<td class="tdWidth">Paid to Account</td>
+<td colspan="2">${ transaction.getToAccount().getAccountNo() }</td>
+</tr>
+<tr>
+<td class="tdWidth">Amount</td>
+<td colspan="2">${ transaction.getAmount() }</td>
+</tr>
+<tr>
+<td class="tdWidth">From Account</td>
+<td colspan="2">${ transaction.getFromAccount().getAccountNo() }</td>
+</tr>
+<tr>
+<td class="tdWidth">On</td>
+<td colspan="2">${ transaction.getTransDate() }</td>
+</tr>
+<tr>
+<td class="tdWidth">Remarks</td>
+<td colspan="2">${ transaction.getRemark() }</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

@@ -3,6 +3,7 @@ package com.bank.controller;
 import java.beans.PropertyEditorSupport;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,28 +12,22 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bank.dto.FundTransferDto;
 import com.bank.entity.Transactions;
-import com.bank.services.TransactionsService;
+import com.bank.services.AccountStatementService;
 
 @Controller
-public class TransactionsController {
-	
+public class AccountStatement {
+
 	@Autowired
-	private TransactionsService transactionService;	
+	private AccountStatementService accountStatementService; 
 	
-	@RequestMapping(path = "/fundTransafer.lti", method = RequestMethod.POST)
-	public String fundTransfer(FundTransferDto fundTransferDto, ModelMap model) {
-		Transactions trans = transactionService.initiateTransfer(fundTransferDto);
-			if(trans != null) {
-				model.put("transaction", trans);
-				return "successfulTransfer.jsp";
-			}
-			else {
-				model.put("TransferMessage", "Failed!!");
-				return "fundTransfer.jsp";
-			}
+	@RequestMapping(path="/accountStatement.lti", method = RequestMethod.POST)
+	public String accountStatement(@RequestParam("fromDate") LocalDate fromDate, @RequestParam("toDate") LocalDate toDate, @RequestParam("accountNo") int accountNo, ModelMap model) {
+		List<Transactions> statement = accountStatementService.fetchAccountStatement(fromDate, toDate, accountNo);
+		model.put("previousTransactions", statement);
+		return "statements.jsp";
 	}
 	
 	@InitBinder
