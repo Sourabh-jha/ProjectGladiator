@@ -1,4 +1,3 @@
-
 input[type=text], input[type=password] {
   width: 20%;
   padding: 10px;
@@ -23,11 +22,8 @@ input[type=text], input[type=password] {
   opacity: 1;
 }
 
-input{
-	width:100%;
-	}
-	
-	
+
+
 .nav {
 10px;
 450px;
@@ -35,16 +31,14 @@ height: 40px;
 width: 400px;
 padding: 10px;
 color: white;
-background-color:black;
+background-color: black;
 text-align: center;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
 rgba(0, 0, 0, 0.19);
-}	
-	
+}
 
 .maindiv{
 	margin-left:35%;
 	margin-top:2%;
 	
 }
-
