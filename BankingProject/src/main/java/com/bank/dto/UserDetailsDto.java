@@ -142,6 +142,4 @@ public class UserDetailsDto {
 	public void setUseraddType(String useraddType) {
 		UseraddType = useraddType;
 	}
-	
-	
 }
