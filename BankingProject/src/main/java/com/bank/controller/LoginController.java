@@ -25,6 +25,7 @@ public class LoginController {
 		boolean i = loginservice.Checklogin(username, password);
 		System.out.println(i);
 		if (i) {
+			
 	//		model.put("loggedInUser", user);
 
 			return "dashboard.jsp";
