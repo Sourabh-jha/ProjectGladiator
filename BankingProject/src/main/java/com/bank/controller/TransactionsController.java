@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bank.dto.FundTransferDto;
-import com.bank.entity.Transactions;
 import com.bank.services.TransactionsService;
 
 @Controller
@@ -22,15 +21,15 @@ public class TransactionsController {
 	@Autowired
 	private TransactionsService transactionService;	
 	
-	@RequestMapping(path = "/fundTransafer.lti", method = RequestMethod.POST)
+	@RequestMapping(path = "/neft.lti", method = RequestMethod.POST)
 	public String fundTransfer(FundTransferDto fundTransferDto, ModelMap model) {
-		Transactions trans = transactionService.initiateTransfer(fundTransferDto);
-			if(trans != null) {
-				model.put("transaction", trans);
-				return "successfulTransfer.jsp";
+		boolean check = transactionService.initiateTransfer(fundTransferDto);
+			if(check) {
+				model.put("TransferMessage", "Successfull!!");
+				return "fundTransfer.jsp";
 			}
 			else {
-				model.put("TransferMessage", "Failed!!");
+				model.put("TransferMessage", "Successfull!!");
 				return "fundTransfer.jsp";
 			}
 	}

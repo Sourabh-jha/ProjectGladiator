@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Account Details</title>
 <link rel="stylesheet" href="style/styles.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 input{
@@ -23,21 +24,6 @@ margin-top: 0;
 </style>
 </head>
 <body>
-<%@page import="java.io.*, java.util.*, java.sql.*"%>
-<%!
-private Connection conn = null;
-public void jspInit(){
-	try {
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "banking", "banking");
-	System.out.println("Connected:" + conn);
-	} catch (ClassNotFoundException e) {
-	System.err.println("ShowLogin_Servlet->unable to load the JDBC Driver...");
-	} catch (SQLException e) {
-	System.err.println("ShowLogin_Servlet->unable to establish the database connection...");
-	}
-}
-%>
 <div class="Mainheader">
 <img src="images/lti_logo.png">
 </div>
@@ -83,55 +69,30 @@ public void jspInit(){
   </div>
 </div>
 <div class="content">
+<p>${ NEFT }</p>
 <h2>Initiate NEFT Payment</h2>
-<form action="fundTransafer.lti" method="post" id="fundTransfer">
+<form action="neft.lti" method="post">
 <table class="detailTable">
 <tr>
-<td class="tdWidth">Mode</td>
-<td colspan="2"><input type="text" name="transferMode" value="NEFT" readonly></td>
-</tr>
-<tr>
 <td class="tdWidth">From Account</td>
-<td colspan="2"><input type="number" name="fromAccountNo"></td>
+<td colspan="2"><input type="number" name="fromAccountNo" value=""></td>
 </tr>
 <tr>
 <td class="tdWidth">To Account</td>
-<td>
-<select name="toAccountNo" style="width: 100%;">
-<%
-String SQL = "SELECT * FROM BENEFICIARY";
-StringBuffer strHTML = new StringBuffer();
-
-try {
-PreparedStatement pstat = conn.prepareStatement(SQL);
-
-ResultSet rs = pstat.executeQuery();
-while (rs.next()) {
-int accNo = rs.getInt("BENEFICIARYACCOUNTNO");
-String holderName = rs.getString("USERNAME");
-%>
-<option value="<%= accNo %>" style="width: 100%;"><%= accNo %> (<%= holderName %>)</option>
-<%
-}
-%>
-<%
-rs.close();
-} catch (SQLException e) {
-e.printStackTrace();
-}
-out.println(strHTML.toString());
-%>
-</select>
-</td>
-<td style="width:150px;"><button><i class="fa fa-plus" aria-hidden="true"></i> Add Account</button></td>
+<td><input type="number" name="toAccountNo"></td>
+<td style="width:150px;"><button><i class="fa fa-plus" aria-hidden="true"></i> Add Account</button></td></td>
 </tr>
 <tr>
 <td class="tdWidth">Amount</td>
 <td colspan="2"><input type="number" name="amount"></td>
 </tr>
 <tr>
+<td class="tdWidth">Transaction Date</td>
+<td colspan="2"><input type="date" name="transDate"></td>
+</tr>
+<tr>
 <td class="tdWidth">Remark</td>
-<td colspan="2"><textarea name="remark" style="width: 100%;" form="fundTransfer"></textarea></td>
+<td colspan="2"><input type="text" name="remark"></td>
 </tr>
 </table>
 <p><b>Please note:</b></p>

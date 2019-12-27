@@ -8,10 +8,9 @@
 <link rel="stylesheet" type="text/css" href="style/login.css">
 </head>
 <body>
-<div class="maindiv">
 <form action="/action_page.php" >
 
-
+<div class="maindiv">
 <p  class="nav" >Registration </p>
 
 <div>

@@ -15,7 +15,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="USER_DETAILS")
-public class UserDetails {
+
+public class UserDetails{
+
+
+
 
 @Id
 @Column(name="ACCOUNTNO")
@@ -62,8 +66,13 @@ private String netBanking;
 @Column(name= "BALANCE")
 private int balance;
 
+
 @Column(name= "APPROVED")
 private String approved;
+
+
+@Column(name = "OCCUPATION")
+private String occupation;
 
 
 
@@ -181,11 +190,24 @@ public void setNetBanking(String netBanking) {
 
 public String getApproved() {
 	return approved;
+
 }
 
 public void setApproved(String approved) {
 	this.approved = approved;
 }
+
+public String getOccupation() {
+	return occupation;
+}
+
+public void setOccupation(String occupation) {
+	this.occupation = occupation;
+}
+
+
+ 
+
 
 
 

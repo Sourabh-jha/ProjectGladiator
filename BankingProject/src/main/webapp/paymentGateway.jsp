@@ -11,6 +11,7 @@
 
 <div class="mainDiv">
     <div class="main">
+    <h1>Initiate Payment</h1>
     	<form action="#" method="post">
     		<input type="text"  name="fromAccount" style="margin-top: 20px;" placeholder="Enter Account No." required><br> <br /> 
     		<input type="text"  name="toAccount" placeholder="To Account" readonly><br> <br /> 
