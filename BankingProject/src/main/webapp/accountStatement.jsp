@@ -81,8 +81,8 @@ public void jspInit(){
 </div>
 <div class="content">
 <form action="accountStatement.lti" method="post">
-From Date: <input type="date" name="fromDate">
-To Date: <input type="date" name="toDate"><br /><br />
+From Date: <input type="date" name="fromDate" required>
+To Date: <input type="date" name="toDate" required><br /><br />
 <table class="detailTable">
 <tr>
 <th>Select</th>

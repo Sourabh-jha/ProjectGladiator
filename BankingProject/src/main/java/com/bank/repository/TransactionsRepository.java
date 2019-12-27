@@ -58,8 +58,9 @@ public class TransactionsRepository {
 	public List<Transactions> fetchPreviousTransactions(int accountNo) {
 		try {
 		UserDetails userDetails = entityManager.find(UserDetails.class, accountNo);
-		Query q = entityManager.createQuery("select t from Transactions t where t.fromAccount=:an");
+		Query q = entityManager.createQuery("select t from Transactions t where t.fromAccount=:an or t.toAccount=:ta");
 		q.setParameter("an", userDetails);
+		q.setParameter("ta", userDetails);
 		List<Transactions> previousTrans = q.getResultList();
 		return previousTrans;
 		}catch(Exception e) {
