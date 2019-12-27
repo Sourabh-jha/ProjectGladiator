@@ -5,18 +5,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Payment Gateway</title>
+<link rel="stylesheet" type="text/css" href="style/paymentGateway.css">
 </head>
 <body>
 
 <div class="mainDiv">
     <div class="main">
-    	<form action="#">
+    	<form action="#" method="post">
     		<input type="text"  name="fromAccount" style="margin-top: 20px;" placeholder="Enter Account No." required><br> <br /> 
-    		<input type="text"  name="toAccount" style="margin-top: 20px;" placeholder="To Account" readonly><br> <br /> 
+    		<input type="text"  name="toAccount" placeholder="To Account" readonly><br> <br /> 
             <input type="number" name="amount" placeholder="Amount" readonly><br> <br />
-            <button>Get OTP</button>
-            <input type="text" name="otp" value="" required> 
-            <input type="submit" name="submit" value="Pay" class="submit"> 
+            <button type="submit">Get OTP</button>
     	</form>
     </div>
  </div>
