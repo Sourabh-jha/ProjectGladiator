@@ -40,11 +40,11 @@ public class UserDetailsController {
 		boolean check = userDetailsService.addAddress(userDetailsDto);
 			if(check) {
 				model.put("addAddressMessage", "Successfull!!");
-				return "fundTransfer.jsp";//
+				return "dashboard.jsp";//
 			}
 			else {
 				model.put("addAddressMessage", "UnSuccessfull!!");
-				return "fundTransfer.jsp";//
+				return "dashboard.jsp";//
 			}
 	}
 	

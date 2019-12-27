@@ -1,6 +1,5 @@
 package com.bank.entity;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -16,7 +15,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="USER_DETAILS")
+
 public class UserDetails{
+
+
+
 
 @Id
 @Column(name="ACCOUNTNO")
@@ -60,13 +63,26 @@ Login username;
 @Column(name="NETBANKING")
 private String netBanking;
 
+@Column(name= "BALANCE")
+private int balance;
+
+
 @Column(name= "APPROVED")
 private String approved;
+
 
 @Column(name = "OCCUPATION")
 private String occupation;
 
 
+
+public int getBalance() {
+	return balance;
+}
+
+public void setBalance(int balance) {
+	this.balance = balance;
+}
 
 public int getAccountNo() {
 return accountNo;
@@ -174,6 +190,7 @@ public void setNetBanking(String netBanking) {
 
 public String getApproved() {
 	return approved;
+
 }
 
 public void setApproved(String approved) {
@@ -191,24 +208,7 @@ public void setOccupation(String occupation) {
 
  
 
-/*public Address getAddress() {
-return address;
-}
 
- 
-
-public void setAddress(Address address) {
-this.address = address;
-}
-
- 
-
-@OneToMany(mappedBy="address")
-private Address address;*/
-
-
-
- 
 
 
 }

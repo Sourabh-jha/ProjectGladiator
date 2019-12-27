@@ -39,8 +39,8 @@ public class UserDetailsService {
 		userDetails.setApproved("NO");	
 		
 		userDetailsRepository.addNewUser(userDetails);
-		userDetailsRepository.updateNewUser(userDetails);
-		userDetailsRepository.deleteNewUser(userDetails);
+		//userDetailsRepository.updateNewUser(userDetails);
+		//userDetailsRepository.deleteNewUser(userDetails);
 
 		addAddress(userDetailsDto);
 		return true;
@@ -59,8 +59,8 @@ public class UserDetailsService {
 		address.setState(userDetailsDto.getUserstate());
 		
 		addressRepository.addNewAddress(address);
-		addressRepository.updateNewAddress(address);
-		addressRepository.deleteNewAddress(address);
+		//addressRepository.updateNewAddress(address);
+		//addressRepository.deleteNewAddress(address);
 
 		addAddress(userDetailsDto);
 		return true;

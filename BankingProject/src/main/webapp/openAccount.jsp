@@ -67,7 +67,7 @@
 				<td><input type="date" name="Userdob" size="20" required><br></td>
 				</tr>
 				<!-------------------------------------------------------------------- -------------------------- -->
-				<!--  
+				
 				<tr>
 					<td><b><u>Residential Address:</u></b></td>
 				</tr>
@@ -245,12 +245,12 @@
 				
 				<tr>
 					<td>
-					<b>PiNCode:</b>
+					<b>PinCode:</b>
 					<td><input type="number" placeholder="Enter Pincode"
 						name="pincode" size="20" required><br></td>
 					</td>
 				</tr>
--->
+
 				<!-------------------------------------------------------------------- -------------------------- -->
 
 				<tr>
@@ -301,10 +301,6 @@
 			</button>
 		</form>
 	</div>
-
-
-
-
 
 	<div
 		style="background-color: black; color: white; text-align: center; padding: 10px; margin-top: 800px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Copyright
