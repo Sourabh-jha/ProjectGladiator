@@ -2,12 +2,14 @@ package com.bank.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,12 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="USER_DETAILS")
-
 public class UserDetails{
-
-
-
-
 @Id
 @Column(name="ACCOUNTNO")
 private int accountNo;
@@ -66,15 +63,11 @@ private String netBanking;
 @Column(name= "BALANCE")
 private int balance;
 
-
 @Column(name= "APPROVED")
 private String approved;
 
-
 @Column(name = "OCCUPATION")
 private String occupation;
-
-
 
 public int getBalance() {
 	return balance;
@@ -204,11 +197,4 @@ public String getOccupation() {
 public void setOccupation(String occupation) {
 	this.occupation = occupation;
 }
-
-
- 
-
-
-
-
 }

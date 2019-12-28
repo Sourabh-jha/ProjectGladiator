@@ -4,6 +4,13 @@ import java.time.LocalDate;
 
 public class UserDetailsDto {
 
+	private String username;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	private String Usertitle;
 	private String Userfirstname;
 	private String Usermiddlename;
@@ -15,21 +22,8 @@ public class UserDetailsDto {
 	private LocalDate Userdob;
 	private String UserOccupation;
 	private int Userincome;
-//	private String Username;
-	//private boolean UsernetBanking;
-	private String Useraddress1;
-	private String Useraddress2;
-	private String Userlandmark;
-	private String Userstate;
-	private String Usercity;
-	private int Userpincode;
-	private String UseraddType;
-	public String getUserOccupation() {
-		return UserOccupation;
-	}
-	public void setUserOccupation(String userOccupation) {
-		UserOccupation = userOccupation;
-	}
+	//	private String Username;
+	private String UsernetBanking;
 	public String getUsertitle() {
 		return Usertitle;
 	}
@@ -84,62 +78,24 @@ public class UserDetailsDto {
 	public void setUserdob(LocalDate userdob) {
 		Userdob = userdob;
 	}
+	public String getUserOccupation() {
+		return UserOccupation;
+	}
+	public void setUserOccupation(String userOccupation) {
+		UserOccupation = userOccupation;
+	}
 	public int getUserincome() {
 		return Userincome;
 	}
 	public void setUserincome(int userincome) {
 		Userincome = userincome;
 	}
-
-	/*
-	 * public String getUsername() { return Username; } public void
-	 * setUsername(String username) { Username = username; }
-	 */
-	/*
-	 * public boolean isUsernetBanking() { return UsernetBanking; } public void
-	 * setUsernetBanking(boolean usernetBanking) { UsernetBanking = usernetBanking;
-	 * }
-	 */
-	public String getUseraddress1() {
-		return Useraddress1;
+	public String getUsernetBanking() {
+		return UsernetBanking;
 	}
-	public void setUseraddress1(String useraddress1) {
-		Useraddress1 = useraddress1;
+	public void setUsernetBanking(String usernetBanking) {
+		UsernetBanking = usernetBanking;
 	}
-	public String getUseraddress2() {
-		return Useraddress2;
-	}
-	public void setUseraddress2(String useraddress2) {
-		Useraddress2 = useraddress2;
-	}
-	public String getUserlandmark() {
-		return Userlandmark;
-	}
-	public void setUserlandmark(String userlandmark) {
-		Userlandmark = userlandmark;
-	}
-	public String getUserstate() {
-		return Userstate;
-	}
-	public void setUserstate(String userstate) {
-		Userstate = userstate;
-	}
-	public String getUsercity() {
-		return Usercity;
-	}
-	public void setUsercity(String usercity) {
-		Usercity = usercity;
-	}
-	public int getUserpincode() {
-		return Userpincode;
-	}
-	public void setUserpincode(int userpincode) {
-		Userpincode = userpincode;
-	}
-	public String getUseraddType() {
-		return UseraddType;
-	}
-	public void setUseraddType(String useraddType) {
-		UseraddType = useraddType;
-	}
+	
+	
 }

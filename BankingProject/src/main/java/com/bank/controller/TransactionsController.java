@@ -22,7 +22,7 @@ public class TransactionsController {
 	@Autowired
 	private TransactionsService transactionService;	
 	
-	@RequestMapping(path = "/fundTransafer.lti", method = RequestMethod.POST)
+	@RequestMapping(path = "/fundTransfer.lti", method = RequestMethod.POST)
 	public String fundTransfer(FundTransferDto fundTransferDto, ModelMap model) {
 		Transactions trans = transactionService.initiateTransfer(fundTransferDto);
 			if(trans != null) {

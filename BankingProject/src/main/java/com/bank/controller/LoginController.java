@@ -6,10 +6,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.bank.services.LoginService;
 
 @Controller
+@SessionAttributes("loggedInUser")
 public class LoginController {
 
 	@Autowired
@@ -22,6 +24,7 @@ public class LoginController {
 		boolean i = loginservice.Checklogin(username, password);
 		System.out.println(i);
 		if (i) {
+			model.put("loggedInUser", username);
 			return "dashboard.jsp";
 		} else {
 

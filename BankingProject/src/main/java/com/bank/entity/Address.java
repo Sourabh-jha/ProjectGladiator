@@ -3,6 +3,8 @@ package com.bank.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,6 +35,18 @@ public class Address {
 	
 	@Column(name = "ADDTYPE")
 	private String addType;
+	
+	@OneToOne
+	@JoinColumn(name = "username")
+	private Login username;
+	
+	public Login getUsername() {
+		return username;
+	}
+
+	public void setUsername(Login username) {
+		this.username = username;
+	}
 
 	public int getAddID() {
 		return addID;
