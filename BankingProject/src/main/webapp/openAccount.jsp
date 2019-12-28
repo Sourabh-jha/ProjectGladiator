@@ -15,11 +15,11 @@
 		<h3>Personal details</h3>
 	</div>
 	<div class="form">
-		<form action="openAccount.lti" method="POST">
+		<form action="openAccount.lti" method="post">
 			<table align="center" cellpadding="15">
 				<tr>
 					<td><b>Title :</b>
-					<td><select name="Usertitle">
+					<td><select name="Usertitle" required>
 							<option value="Mr" name="Usertitle">Mr</option>
 							<option value="Ms" name="Usertitle">Ms</option>
 							<option value="Mrs" name="Usertitle">Mrs</option>
@@ -30,12 +30,10 @@
 					<td><input type="text" placeholder="FirstName"
 						name="Userfirstname" size="20" required><br></td>
 				</tr>
-
 				<tr>
 					<td><b>Enter MiddleName:</b></td>
 					<td><input type="text" placeholder="MiddleName"
 						name="Usermiddlename" size="20"><br></td>
-					
 				</tr>
 				<tr>
 					<td><b>Enter LastName:</b></td>
@@ -72,7 +70,6 @@
 					<td><b><u>Residential Address:</u></b></td>
 				</tr>
 
-
 				<tr>
 					<td><b> Address Line 1:</b></td>
 					<td><input type="text" placeholder="Enter FlatNo. and Building Name"
@@ -94,8 +91,7 @@
 				<tr>
 					<td>
 					<b>State :</b>
-					<td><select>
-							
+					<td><select name="state">					
 							
 	<option value="Andaman and Nicobar Islands" name="state">Andaman and Nicobar Islands</option>
 	<option value="Andhra Pradesh" name="state">Andhra Pradesh</option>
@@ -147,8 +143,7 @@
 						name="city" size="30" required><br></td>
 					</td>
 				</tr>
-				
-				
+							
 				<tr>
 					<td>
 					<b>PiNCode:</b>
@@ -156,24 +151,25 @@
 						name="pincode" size="20" required><br></td>
 					</td>
 				</tr>
+				
 				<!-------------------------------------------------------------------- -------------------------- -->
 
 				<tr>
 					<td><b><u>Occupation Details:</u></b></td>
 				</tr>
+				
 				<tr>
 					<td>
 					<b>OccupationType:</b></td>
 					<td><input type="text" placeholder="Enter OccupationType"
 						name="UserOccupation" size="20" required><br></td>
 				</tr>
+				
 				<tr>
 					<td><b>Gross Annual Income:</b></td>
 					<td><input type="number" placeholder="Enter Income"
 						name="Userincome" size="20" required><br></td>
 				</tr>
-				
-				<tr></tr>
 
 				<tr>
 					<td><b><u>Debit/Atm Card </u></b></td>
@@ -184,23 +180,13 @@
 						value="YES"> &nbsp <b>Opt For Net Banking
 					</b></td>
 				</tr>
+				
 				<tr>
 					<td><input type="checkbox" name="agree" value="agree">
 						&nbsp <b>I agree</b></td>
 				</tr>
 
-
-
-
-
-				<!--  			<tr>
-					<td><b>Gender:</b>
-					<td><input type="radio" name="gender" value="Male" size="20">Male
-						<input type="radio" name="gender" value="Female" size="20">Female<br></td>
-				</tr>
--->
 			</table>
-
 			<button class="button" style="vertical-align: middle">
 				<span>Submit </span>
 			</button>
@@ -210,8 +196,6 @@
 	<div
 		style="background-color: black; color: white; text-align: center; padding: 10px; margin-top: 800px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Copyright
 		© 2019 Axis Bank</div>
-
-
 
 </body>
 </html>

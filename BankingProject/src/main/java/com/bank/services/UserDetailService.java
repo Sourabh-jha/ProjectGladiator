@@ -25,6 +25,8 @@ public class UserDetailService {
 	
 	public boolean addANewUser(UserDetailsDto userDetailsDto,AddressDto addressDto) {
 		UserDetails userDetails = new UserDetails();
+		Login user = userDetailsRepository.fetchUser(userDetailsDto.getUsername());
+		userDetails.setUsername(user);
 		userDetails.setAadharNo(userDetailsDto.getUseraadharNo());
 		userDetails.setDob(userDetailsDto.getUserdob());
 		userDetails.setEmailId(userDetailsDto.getUseremailId());
@@ -35,16 +37,18 @@ public class UserDetailService {
 		userDetails.setIncome(userDetailsDto.getUserincome());
 		userDetails.setMobileNo(userDetailsDto.getUsermobileNo());
 		userDetails.setNetBanking(userDetailsDto.getUsernetBanking());
+		userDetails.setOccupation(userDetailsDto.getUserOccupation());
 		userDetails.setApproved("NO");
 		userDetails.setBalance(0);
 		Address address = new Address();
+		address.setUsername(user);
 		address.setAddress1(addressDto.getAddressLine1());
 		address.setAddress2(addressDto.getAddressLine2());
 		address.setCity(addressDto.getCity());
 		address.setLandmark(addressDto.getLandmark());
 		address.setPincode(addressDto.getPincode());
 		address.setState(addressDto.getState());
-		address.setAddType("Both");
+		address.setAddType("Permanent");
 		return userDetailsRepository.addANewUser(userDetails, address);
 	}
 

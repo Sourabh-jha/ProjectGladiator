@@ -17,7 +17,7 @@ public class LoginController {
 	@Autowired
 	private LoginService loginservice;
 
-	@RequestMapping(path = "/login.lti", method = RequestMethod.POST)
+	@RequestMapping(path = "/loginjh.lti", method = RequestMethod.POST)
 	public String login(@RequestParam("username") String username, @RequestParam("password") String password,
 			ModelMap model) {
 
@@ -25,7 +25,7 @@ public class LoginController {
 		System.out.println(i);
 		if (i) {
 			model.put("loggedInUser", username);
-			return "dashboard.jsp";
+			return "home.jsp";
 		} else {
 
 			return null;

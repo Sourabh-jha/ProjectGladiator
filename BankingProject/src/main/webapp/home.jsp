@@ -17,7 +17,7 @@
 		<div class="menu">
 			<a href="login.jsp"><b>Login</b></a> 
 			<a href="register.jsp"><b>Register</b></a>
-			<a href="openAccount.jsp"><b>Open New Account</b></a>
+			<form action="checkLogin.lti" method="post"><input type="submit" value="Open New Account"></form>
 
 		</div>
 
