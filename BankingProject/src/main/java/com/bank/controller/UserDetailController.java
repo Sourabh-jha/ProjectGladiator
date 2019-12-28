@@ -58,30 +58,6 @@ public class UserDetailController {
 		
 	}
 	
-	@RequestMapping("/admin.lti")
-	public String fetchAll(ModelMap model, HttpServletRequest request) {
-		String projPath = request.getServletContext().getRealPath("/");
-		System.out.println(projPath);
-		File documentFolder = new File(projPath + "profiles");
-		if(!documentFolder.exists())
-			documentFolder.mkdir();
-		
-		List<UserDetails> list = userDetailsService.getUserDetails();
-		for(UserDetails user: list) {
-			if(user.getDocumentname() != null) {
-			File documentUploadedLocation = new File("D:/document/" + user.getDocumentname());
-			File documentProjLocation = new File(documentFolder, user.getDocumentname());
-			try {
-				FileUtils.copyFile(documentUploadedLocation, documentProjLocation);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			}
-		}
-		model.put("listOfUsers", list);
-		return "admin.jsp";
-	}
-	
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
 	  binder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {

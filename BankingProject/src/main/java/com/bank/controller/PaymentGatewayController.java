@@ -22,7 +22,7 @@ public class PaymentGatewayController {
 	
 	@Autowired
 	private SmsService smsService;
-
+	
 	@RequestMapping(path = "/paymentGateway.lti", method = RequestMethod.POST)
 	public String goPayment(@RequestParam("fromAccount") int fromAccount, @RequestParam("toAccount") int toAccount, @RequestParam("amount") int amount, ModelMap model) {
 	

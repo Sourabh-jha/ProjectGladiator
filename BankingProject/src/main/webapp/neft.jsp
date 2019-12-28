@@ -123,7 +123,7 @@ out.println(strHTML.toString());
 %>
 </select>
 </td>
-<td style="width:150px;"><button><i class="fa fa-plus" aria-hidden="true"></i> Add Account</button></td>
+<td style="width:150px;"><a href="beneficiary.jsp"><i class="fa fa-plus" aria-hidden="true"></i>Add Account</a></td>
 </tr>
 <tr>
 <td class="tdWidth">Amount</td>

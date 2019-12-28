@@ -27,6 +27,14 @@ public class UserDetailService {
 		return userDetailsRepository.getUserDetails();
 	}
 	
+	public List<UserDetails> getUserDetailsByUsername(String username) {
+		return userDetailsRepository.getUserDetailsByUsername(username);
+	}
+	
+	public UserDetails getUserDetailsByaccNo(int accountNo) {
+		return userDetailsRepository.getUserDetailsByaccNo(accountNo);
+	}
+	
 	public boolean addANewUser(UserDetailsDto userDetailsDto,AddressDto addressDto) {
 		UserDetails userDetails = new UserDetails();
 		Login user = userDetailsRepository.fetchUser(userDetailsDto.getUsername());
@@ -59,6 +67,10 @@ public class UserDetailService {
 
 	public Login fetchUser(String username) {
 		return userDetailsRepository.fetchUser(username);
+	}
+
+	public boolean changePassword(Login details) {
+		return userDetailsRepository.changePassword(details);
 	}
 
 	

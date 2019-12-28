@@ -8,15 +8,13 @@
 <link href="style/openAccount.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div id="header">
-		<h1>Open a Savings Account</h1>
-	</div>
-	<div id="nav">
-		<h3>Personal details</h3>
-	</div>
-	<div class="form">
-		<form action="openAccount.lti" method="post" enctype="multipart/form-data">
-			<table align="center" cellpadding="15">
+<div class="mainDiv">
+<div class="main">
+
+ <h1>Open Savings Account</h1>
+	
+		<form action="openAccount.lti" method="post">
+			<table align="center" cellpadding="15" >
 				<tr>
 					<td><b>Title :</b>
 					<td><select name="Usertitle" required>
@@ -59,7 +57,6 @@
 					<td><b>AdharCard Number:</b></td>
 					<td><input type="text" placeholder="Enter AdharCard Number"
 						name="UseraadharNo" size="20" required><br></td>
-					<td><input type="file" name="document"><br /></td>
 				</tr>
 				<tr>
 				<td><b>Date-Of-Birth :</b></td>
@@ -92,7 +89,7 @@
 				<tr>
 					<td>
 					<b>State :</b>
-					<td><select name="state">					
+					<td><select  name="state">					
 							
 	<option value="Andaman and Nicobar Islands" name="state">Andaman and Nicobar Islands</option>
 	<option value="Andhra Pradesh" name="state">Andhra Pradesh</option>
@@ -147,7 +144,7 @@
 							
 				<tr>
 					<td>
-					<b>PiNCode:</b>
+					<b>PinCode:</b>
 					<td><input type="number" placeholder="Enter Pincode"
 						name="pincode" size="20" required><br></td>
 					</td>
@@ -178,7 +175,7 @@
 
 				<tr>
 					<td><input type="checkbox" name="UsernetBanking"
-						value="YES"> &nbsp <b>Opt For Net Banking
+						value="YES"> &nbsp <b>Net Banking
 					</b></td>
 				</tr>
 				
@@ -188,15 +185,12 @@
 				</tr>
 
 			</table>
-			<button class="button" style="vertical-align: middle">
-				<span>Submit </span>
-			</button>
+			<button style="margin-left:250px;"  type="button" class="submit">Submit</button>
 		</form>
 	</div>
+	</div>
 
-	<div
-		style="background-color: black; color: white; text-align: center; padding: 10px; margin-top: 800px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Copyright
-		© 2019 Axis Bank</div>
 
+	
 </body>
 </html>

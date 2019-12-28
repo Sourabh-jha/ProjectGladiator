@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,26 +8,22 @@
 <link rel="stylesheet" type="text/css" href="style/forgot-password.css">
 </head>
 <body>
-<div class="maindiv" >
-<form>
-<p class="nav" >Forgot Password </p>
 
-<div>
-<label for="Enter User Id"><b>Enter User Id:&nbsp &nbsp &nbsp</b></label>
- <input style="margin-left:65px;"  type="text"  name="enteruserid" required>
+<div class="mainDiv">
+		<div class="main">
+			<h1>${ changes }</h1>
+			<form action="forgotloginPassword.lti" method="post">
+			<div style="text-align: center;">
+				<img src="images/password.png" width="75" height="90">
+				<h1>Forgot Password</h1>
+				<input type="text" name="username" value="${ loggedInUser }" placeholder="${ loggedInUser }" readonly><br> <br /> 
+				<input type="password" name="password" placeholder="Enter Password" required><br> <br />
+				<input type="password" name="repassword" placeholder="Re-Enter Password" required><br> <br />
+				<button style="margin-left: 20px;" type="submit" class="submit">Proceed</button>
+				</div>
+			</form>
+		</div>
 </div>
 
-<div>
-<label for="OTP"><b>Enter OTP:&nbsp &nbsp &nbsp</b></label>
- <input style="margin-left:85px;" type="text"  name="otp" required>
- </div>
- 
- <div>
- <button style="margin-left:100px;"  type="button" class="loginbtn">Proceed</button>&nbsp&nbsp&nbsp&nbsp&nbsp
-  <button  type="button" class="loginbtn">Back</button>
-</div>
-
-</form>
-</div>
 </body>
 </html>

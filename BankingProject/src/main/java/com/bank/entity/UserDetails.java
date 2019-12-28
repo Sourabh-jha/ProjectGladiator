@@ -208,4 +208,14 @@ public String getOccupation() {
 public void setOccupation(String occupation) {
 	this.occupation = occupation;
 }
+
+@Override
+public String toString() {
+	return "UserDetails [accountNo=" + accountNo + ", title=" + title + ", firstname=" + firstname + ", middlename="
+			+ middlename + ", lastname=" + lastname + ", fathername=" + fathername + ", mobileNo=" + mobileNo
+			+ ", emailId=" + emailId + ", aadharNo=" + aadharNo + ", dob=" + dob + ", income=" + income + ", username="
+			+ username + ", netBanking=" + netBanking + ", balance=" + balance + ", approved=" + approved
+			+ ", occupation=" + occupation + ", documentname=" + documentname + "]";
+}
+
 }

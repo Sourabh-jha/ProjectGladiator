@@ -61,23 +61,23 @@
 </tr>
 <tr>
 <td>Name</td>
-<td></td>
+<td>${ accountDetail.firstname }</td>
 </tr>
 <tr>
 <td>Mobile Number</td>
-<td></td>
+<td>${ accountDetail.mobileNo }</td>
 </tr>
 <tr>
 <td>Email ID</td>
-<td></td>
+<td>${ accountDetail.emailId }</td>
 </tr>
 <tr>
 <td>Aadhar Card Number</td>
-<td></td>
+<td>${ accountDetail.aadharNo }</td>
 </tr>
 <tr>
 <td>DOB</td>
-<td></td>
+<td>${ accountDetail.dob }</td>
 </tr>
 </table>
 </div>

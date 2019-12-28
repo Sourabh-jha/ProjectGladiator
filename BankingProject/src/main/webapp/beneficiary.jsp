@@ -4,24 +4,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Beneficiary</title>
+<link rel="stylesheet" type="text/css" href="style/beneficiary.css">
 </head>
 <body>
+<div class="mainDiv">
+<div class="main">
 <form action="beneficiary.lti" method="post">
-<table>
-<tr>
-<td><input type="text" name="usernameBene"></td>
-</tr>
-<tr>
-<td><input type="text" name="beneAccountNoBene"></td>
-</tr>
-<tr>
-<td><input type="text" name="nicknameBene"></td>
-</tr>
-<tr>
-<td><input type="submit" name="submit"></td>
-</tr>
-</table>
+<div style="text-align: center;">
+ <h1>Add New Beneficiary</h1>
+<input type="text"  name="usernameBene" value="${ loggedInUser }" style="margin-top: 20px;" placeholder="Enter User Name" readonly><br> <br /> 
+<input type="text" name="beneAccountNoBene" placeholder="Account Number" required><br> <br /> 
+<input type="text" name="nicknameBene" placeholder="NickName" required><br> <br /> 
+        
+<button style="margin-left:0px;"  type="submit" class="submit">Submit</button>
+
+</div>
+
 </form>
+</div>
+</div>
 </body>
 </html>

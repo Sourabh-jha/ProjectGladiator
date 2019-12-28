@@ -31,6 +31,17 @@ public class UserDetailRepository  {
 		entityManager.merge(userDetails);
 		
 	}
+	
+	@Transactional
+	public boolean updateUser(UserDetails userDetails) {
+		try {
+		entityManager.merge(userDetails);
+		return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 	public void deleteNewUser(UserDetails userDetails) {
 		entityManager.remove(userDetails);
@@ -65,9 +76,30 @@ public class UserDetailRepository  {
 	}
 
 	public List<UserDetails> getUserDetails() {
-		Query q=entityManager.createQuery("select u from UserDetails u where approved=:ap");
+		Query q=entityManager.createQuery("select u from UserDetails u where u.approved=:ap");
 		q.setParameter("ap", "NO");
 		return q.getResultList();
+	}
+
+	public List<UserDetails> getUserDetailsByUsername(String username) {
+		Query q=entityManager.createQuery("select u from UserDetails u where username=:un");
+		q.setParameter("un", username);
+		return q.getResultList();
+	}
+
+	public UserDetails getUserDetailsByaccNo(int accountNo) {
+		UserDetails user = entityManager.find(UserDetails.class, accountNo);
+		return user;
+	}
+
+	public boolean changePassword(Login details) {
+		try {
+			entityManager.merge(details);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	

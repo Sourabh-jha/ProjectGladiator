@@ -8,6 +8,17 @@
 <link rel="stylesheet" href="style/styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<style>
+.submitbtn{
+margin-top: 10px;
+padding: 10px;
+border: 1px solid #f1f1f1;
+border-radius: 5px;
+background-color: #292e7d;
+color: #f1f1f1;
+cursor: pointer;
+}
+</style>
 <body>
 <%@page import="java.io.*, java.util.*, java.sql.*"%>
 <%!
@@ -99,7 +110,7 @@ e.printStackTrace();
 }
 %>
 </table>
-<input type="submit" name="submit" value="Get Details">
+<input type="submit" class="submitbtn" name="submit" value="Get Details">
 </form>
 </div>
 </div>
