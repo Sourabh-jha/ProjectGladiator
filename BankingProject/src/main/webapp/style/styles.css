@@ -9,7 +9,7 @@ body{
 .Mainheader{
 	width: 100%;
 	height: 100px;
-	background-color: rgb(41,46,125);
+	background-image: linear-gradient(to right, #f3751f , #292e7d);
 }
 .Mainheader > img{
 	float: right;
@@ -148,7 +148,7 @@ a{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #f26e21;
+  background-color: #292e7d;
   color: white;
 }
 .transferOptBtn{

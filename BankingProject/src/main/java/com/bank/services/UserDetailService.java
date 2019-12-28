@@ -23,6 +23,10 @@ public class UserDetailService {
 		return userDetailsRepository.getUserDetailsList();
 	}
 	
+	public List<UserDetails> getUserDetails() {
+		return userDetailsRepository.getUserDetails();
+	}
+	
 	public boolean addANewUser(UserDetailsDto userDetailsDto,AddressDto addressDto) {
 		UserDetails userDetails = new UserDetails();
 		Login user = userDetailsRepository.fetchUser(userDetailsDto.getUsername());
@@ -38,6 +42,7 @@ public class UserDetailService {
 		userDetails.setMobileNo(userDetailsDto.getUsermobileNo());
 		userDetails.setNetBanking(userDetailsDto.getUsernetBanking());
 		userDetails.setOccupation(userDetailsDto.getUserOccupation());
+		userDetails.setDocumentname(userDetailsDto.getDocumentName());
 		userDetails.setApproved("NO");
 		userDetails.setBalance(0);
 		Address address = new Address();

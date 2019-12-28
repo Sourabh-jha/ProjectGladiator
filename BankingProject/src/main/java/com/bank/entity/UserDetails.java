@@ -69,6 +69,17 @@ private String approved;
 @Column(name = "OCCUPATION")
 private String occupation;
 
+@Column(name = "DOCUMENTNAME")
+private String documentname;
+
+public String getDocumentname() {
+	return documentname;
+}
+
+public void setDocumentname(String documentname) {
+	this.documentname = documentname;
+}
+
 public int getBalance() {
 	return balance;
 }

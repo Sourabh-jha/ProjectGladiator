@@ -1,4 +1,6 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@page import="java.net.HttpURLConnection"%>
+<%@page import="java.net.URL"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -9,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="Mainheader">
+<div class="Mainheader" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
 <img src="images/lti_logo.png">
 </div>
 <div class="mainContent">
@@ -85,10 +87,17 @@
 <td colspan="2">${ transaction.getRemark() }</td>
 </tr>
 </table>
+<%
+String url = "http://localhost/?";
+URL obj = new URL(url);
+HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+conn.setInstanceFollowRedirects(true);  //you still need to handle redirect manully.
+HttpURLConnection.setFollowRedirects(true);
+%>
 </div>
 </div>
 </div>
-<div class="footer">
+<div class="footer" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
   <p>&copy; copyright by <b>HERI PHERI BANK</b></p>
 </div>
 </body>

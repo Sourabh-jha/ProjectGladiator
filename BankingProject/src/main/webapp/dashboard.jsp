@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="Mainheader">
+<div class="Mainheader" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
 <img src="images/lti_logo.png">
 </div>
 <div class="mainContent">
@@ -27,9 +27,9 @@
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">IMPS</a>
-      <a href="#">NEFT</a>
-      <a href="#">RTGS</a>
+      <a href="imps.jsp">IMPS</a>
+      <a href="neft.jsp">NEFT</a>
+      <a href="rtgs.jsp">RTGS</a>
     </div>
   </div> 
   <div class="dropdown">
@@ -63,7 +63,7 @@
 </div>
 </div>
 </div>
-<div class="footer">
+<div class="footer" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
   <p>&copy; copyright by <b>HERI PHERI BANK</b></p>
 </div>
 </body>

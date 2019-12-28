@@ -15,7 +15,7 @@
 		<h3>Personal details</h3>
 	</div>
 	<div class="form">
-		<form action="openAccount.lti" method="post">
+		<form action="openAccount.lti" method="post" enctype="multipart/form-data">
 			<table align="center" cellpadding="15">
 				<tr>
 					<td><b>Title :</b>
@@ -59,6 +59,7 @@
 					<td><b>AdharCard Number:</b></td>
 					<td><input type="text" placeholder="Enter AdharCard Number"
 						name="UseraadharNo" size="20" required><br></td>
+					<td><input type="file" name="document"><br /></td>
 				</tr>
 				<tr>
 				<td><b>Date-Of-Birth :</b></td>

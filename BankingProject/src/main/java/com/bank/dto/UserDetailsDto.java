@@ -19,11 +19,19 @@ public class UserDetailsDto {
 	private long UsermobileNo;
 	private String UseremailId;
 	private long UseraadharNo;
+	private String documentName;
 	private LocalDate Userdob;
 	private String UserOccupation;
 	private int Userincome;
 	//	private String Username;
 	private String UsernetBanking;
+	
+	public String getDocumentName() {
+		return documentName;
+	}
+	public void setDocumentName(String documentName) {
+		this.documentName = documentName;
+	}
 	public String getUsertitle() {
 		return Usertitle;
 	}

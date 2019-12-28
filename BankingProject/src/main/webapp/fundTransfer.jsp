@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="Mainheader">
+<div class="Mainheader" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
 <img src="lti_logo.png">
 </div>
 <div class="mainContent">
@@ -62,7 +62,7 @@
 </div>
 </div>
 </div>
-<div class="footer">
+<div class="footer" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
   <p>&copy; copyright by <b>HERI PHERI BANK</b></p>
 </div>
 </body>

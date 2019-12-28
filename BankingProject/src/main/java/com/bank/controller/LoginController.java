@@ -25,7 +25,7 @@ public class LoginController {
 		System.out.println(i);
 		if (i) {
 			model.put("loggedInUser", username);
-			return "home.jsp";
+			return "dashboard.jsp";
 		} else {
 
 			return null;

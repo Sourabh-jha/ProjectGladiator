@@ -35,7 +35,7 @@ public void jspInit(){
 	}
 }
 %>
-<div class="Mainheader">
+<div class="Mainheader" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
 <img src="images/lti_logo.png">
 </div>
 <div class="mainContent">
@@ -119,7 +119,7 @@ e.printStackTrace();
 </div>
 </div>
 </div>
-<div class="footer">
+<div class="footer" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
   <p>&copy; copyright by <b>HERI PHERI BANK</b></p>
 </div>
 </body>

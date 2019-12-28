@@ -49,8 +49,8 @@
    </bean>
    <tx:annotation-driven />
   
-  <!--  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.live.com"/>
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="outlook.com"/>
         <property name="port" value="587" />
         <property name="username" value="workplace123123@outlook.com"/>
         <property name="password" value="Gmail@123"/>
@@ -70,7 +70,7 @@
     <bean id="preConfiguredMessage" class="org.springframework.mail.SimpleMailMessage">
         <property name="from" value="workplace123123@outlook.com"></property>
     </bean>
-   --> 
+    
     <!-- Enabling support for File Upload in Spring MVC -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSizePerFile" value="52428800"/>

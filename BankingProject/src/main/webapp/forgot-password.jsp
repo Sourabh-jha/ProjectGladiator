@@ -8,10 +8,8 @@
 <link rel="stylesheet" type="text/css" href="style/forgot-password.css">
 </head>
 <body>
-<form>
-
 <div class="maindiv" >
-
+<form>
 <p class="nav" >Forgot Password </p>
 
 <div>
@@ -31,16 +29,5 @@
 
 </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

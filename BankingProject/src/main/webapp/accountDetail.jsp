@@ -9,7 +9,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="Mainheader">
+<%@page import="java.io.*, java.util.*, java.sql.*"%>
+<%!
+private Connection conn = null;
+public void jspInit(){
+	try {
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "banking", "banking");
+	System.out.println("Connected:" + conn);
+	} catch (ClassNotFoundException e) {
+	System.err.println("ShowLogin_Servlet->unable to load the JDBC Driver...");
+	} catch (SQLException e) {
+	System.err.println("ShowLogin_Servlet->unable to establish the database connection...");
+	}
+}
+%>
+<div class="Mainheader"style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
 <img src="images/lti_logo.png">
 </div>
 <div class="mainContent">
@@ -54,36 +69,42 @@
   </div>
 </div>
 <div class="content">
+<form action="accountDetail.lti" method="post">
 <table class="detailTable">
 <tr>
-<th style="width: 250px;">Credentials</th>
-<th>Entered Details</th>
+<th style="width: 250px;">Select</th>
+<th>Account Number</th>
 </tr>
+<%
+String SQL = "SELECT * FROM USER_DETAILS";
+StringBuffer strHTML = new StringBuffer();
+
+try {
+PreparedStatement pstat = conn.prepareStatement(SQL);
+ResultSet rs = pstat.executeQuery();
+while (rs.next()) {
+int accNo = rs.getInt("ACCOUNTNO");
+%>
 <tr>
-<td>Name</td>
-<td></td>
+<td><input type="radio" name="accountNo" value="<%= accNo %>"></td>
+<td><%= accNo %></td>
 </tr>
-<tr>
-<td>Mobile Number</td>
-<td></td>
-</tr>
-<tr>
-<td>Email ID</td>
-<td></td>
-</tr>
-<tr>
-<td>Aadhar Card Number</td>
-<td></td>
-</tr>
-<tr>
-<td>DOB</td>
-<td></td>
-</tr>
+<%
+}
+%>
+<%
+rs.close();
+} catch (SQLException e) {
+e.printStackTrace();
+}
+%>
 </table>
+<input type="submit" name="submit" value="Get Details">
+</form>
 </div>
 </div>
 </div>
-<div class="footer">
+<div class="footer"style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
   <p>&copy; copyright by <b>HERI PHERI BANK</b></p>
 </div>
 </body>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +42,7 @@ public class UserDetailRepository  {
 	}
 
 	public List<UserDetailsDto> getUserDetailsList() {
-		javax.persistence.Query q=entityManager.createQuery("select u from UserDetailsDto u");
+		Query q=entityManager.createQuery("select u from UserDetailsDto u");
 		return q.getResultList();	
 		}
 	
@@ -61,6 +62,12 @@ public class UserDetailRepository  {
 	public Login fetchUser(String username) {
 		Login user = entityManager.find(Login.class, username);
 		return user;
+	}
+
+	public List<UserDetails> getUserDetails() {
+		Query q=entityManager.createQuery("select u from UserDetails u where approved=:ap");
+		q.setParameter("ap", "NO");
+		return q.getResultList();
 	}
 	
 	
