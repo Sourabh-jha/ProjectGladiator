@@ -17,7 +17,7 @@ public class LoginController {
 	@Autowired
 	private LoginService loginservice;
 
-	@RequestMapping(path = "/loginjh.lti", method = RequestMethod.POST)
+	@RequestMapping(path = "/login.lti", method = RequestMethod.POST)
 	public String login(@RequestParam("username") String username, @RequestParam("password") String password,
 			ModelMap model) {
 
@@ -31,5 +31,16 @@ public class LoginController {
 			return null;
 		}
 
+	}
+	
+	@RequestMapping(path = "/checkLogin.lti", method = RequestMethod.POST)
+	public String login(ModelMap model) {
+		System.out.println(model.get("loggedInUser"));
+		if(model.get("loggedInUser")!=null) {
+			return "openAccount.jsp";
+		}
+		else {
+			return "login.jsp";
+		}
 	}
 }

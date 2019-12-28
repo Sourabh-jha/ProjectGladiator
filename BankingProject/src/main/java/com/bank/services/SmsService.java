@@ -22,7 +22,7 @@ public class SmsService {
 			OTP = rand.nextInt(999999);
 			String message = "&message=" + "Hey "+name+" your OTP is "+OTP;
 			String sender = "&sender=" + "Hera Pheri Bank";
-			String numbers = "&numbers=" + "9632752763";
+			String numbers = "&numbers=" + "919632752763";
 			
 			// Send data
 			System.out.println(message);

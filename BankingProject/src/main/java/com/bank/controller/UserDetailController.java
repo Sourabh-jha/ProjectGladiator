@@ -53,40 +53,5 @@ public class UserDetailController {
 	      setValue(LocalDate.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 	    }
 	  });
-	}
-	
-		
-	@Autowired
-	private LoginService loginservice;
-
-	@RequestMapping(path = "/login.lti", method = RequestMethod.POST)
-	public String login(@RequestParam("username") String username, @RequestParam("password") String password,
-			ModelMap model) {
-
-		boolean i = loginservice.Checklogin(username, password);
-		System.out.println(i);
-		if (i) {
-			model.put("loggedInUser", username);
-			return "dashboard.jsp";
-		} else {
-
-			return null;
-		}
-
-	}
-	
-	@RequestMapping(path = "/checkLogin.lti", method = RequestMethod.POST)
-	public String login(ModelMap model) {
-		System.out.println(model.get("loggedInUser"));
-		if(model.get("loggedInUser")!=null) {
-			return "openAccount.jsp";
-		}
-		else {
-			return "login.jsp";
-		}
-	}
-
-	
-	
-	
+	}	
 }

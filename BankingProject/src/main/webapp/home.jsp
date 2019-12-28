@@ -10,7 +10,7 @@
 
 <body>
 	<div id="header">
-		<h1>Welcome To Axis Bank</h1>
+		<h1>Welcome To Hera Pheri Bank</h1>
 	</div>
 
 	<div style="overflow: auto">
@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="main">
-			<h2>Axis</h2>
+			<h2>About</h2>
 			<p>Axis Bank is the third-largest of the private-sector banks in
 				India offering a comprehensive suite of financial products. The bank
 				has its head office in Mumbai, Maharashtra</p>
