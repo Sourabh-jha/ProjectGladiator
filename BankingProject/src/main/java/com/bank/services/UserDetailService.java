@@ -38,6 +38,7 @@ public class UserDetailService {
 	public boolean addANewUser(UserDetailsDto userDetailsDto,AddressDto addressDto) {
 		UserDetails userDetails = new UserDetails();
 		Login user = userDetailsRepository.fetchUser(userDetailsDto.getUsername());
+		userDetails.setTitle(userDetailsDto.getUsertitle());
 		userDetails.setUsername(user);
 		userDetails.setAadharNo(userDetailsDto.getUseraadharNo());
 		userDetails.setDob(userDetailsDto.getUserdob());

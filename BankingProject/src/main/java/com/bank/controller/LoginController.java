@@ -61,7 +61,7 @@ public class LoginController {
 			model.put("loggedInUser", username);
 			return "dashboard.jsp";
 		} else {
-
+			System.out.println("Invalid Credentials!!");
 			return null;
 		}
 		}

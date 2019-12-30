@@ -10,11 +10,8 @@ public class LoginService {
 	@Autowired
 	private LoginRepository loginrepo;
 	
-public boolean Checklogin(String username,String password) {
-	return loginrepo.check(username, password);
-	
-	
-	
-	
-}
+	public boolean Checklogin(String username,String password) {
+		return loginrepo.check(username, password);
+	}
+
 }

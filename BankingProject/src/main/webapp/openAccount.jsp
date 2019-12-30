@@ -13,7 +13,7 @@
 
  <h1>Open Savings Account</h1>
 	
-		<form action="openAccount.lti" method="post">
+		<form action="openAccount.lti" method="post" enctype="multipart/form-data">
 			<table align="center" cellpadding="15" >
 				<tr>
 					<td><b>Title :</b>
@@ -57,6 +57,7 @@
 					<td><b>AdharCard Number:</b></td>
 					<td><input type="text" placeholder="Enter AdharCard Number"
 						name="UseraadharNo" size="20" required><br></td>
+						<td><input type="file" name="document"></td>
 				</tr>
 				<tr>
 				<td><b>Date-Of-Birth :</b></td>
@@ -185,7 +186,7 @@
 				</tr>
 
 			</table>
-			<button style="margin-left:250px;"  type="button" class="submit">Submit</button>
+			<button style="margin-left:250px;"  type="submit" class="submit">Submit</button>
 		</form>
 	</div>
 	</div>

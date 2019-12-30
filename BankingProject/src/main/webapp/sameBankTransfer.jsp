@@ -21,6 +21,15 @@ width: 150px;
 .content{
 margin-top: 0;
 }
+.sidebtn{
+cursor: pointer;
+padding-left; 
+margin-top: 0px;
+padding : 5px;
+border-radius: 5px;
+border: none;
+background-color: white;
+}
 </style>
 </head>
 <body>
@@ -40,14 +49,14 @@ public void jspInit(){
 }
 %>
 <div class="Mainheader" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
-<img src="images/lti_logo.png">
+<img src="images/lti_logo.jpeg">
 </div>
 <div class="mainContent">
 <div class="leftsidenav">
-<div class="navOptions"><a href="accountDetail.jsp" >Account Detail</a></div>
-<div class="navOptions"><a href="accountSummary.jsp">Account Summary</a></div>
-<div class="navOptions" style="background-color: #292e7d; border-radius: 5px; border: 1px solid #f1f1f1;"><a href="fundTransfer.jsp" style="color: #f1f1f1;">Fund Transfer</a></div>
-<div class="navOptions"><a href="accountStatement.jsp">Account Statement</a></div>
+<div class="navOptions"><form action="dashboardaccDetail.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Account Detail"></form></div>
+<div class="navOptions"><form action="dashboardaccSummary.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Account Summary"></form></div>
+<div class="navOptions" style="background-color: #292e7d;"><form action="dashboardfundTransfer.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Fund Transfer"></form></div>
+<div class="navOptions"><form action="dashboardaccStatement.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Account Statement"></form></div>
 </div>
 <div class="rightsidenav">
 <div class="navbar">
@@ -67,9 +76,7 @@ public void jspInit(){
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="accountDetail.jsp">Account Details</a>
     </div>
   </div> 
   <div class="dropdown">
@@ -77,9 +84,7 @@ public void jspInit(){
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="forgot-password.jsp">Forgot Password</a>
     </div>
   </div>
 </div>

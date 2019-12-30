@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,32 +19,26 @@ background-color: #292e7d;
 color: #f1f1f1;
 cursor: pointer;
 }
+.sidebtn{
+cursor: pointer;
+padding-left; 
+margin-top: 0px;
+padding : 5px;
+border-radius: 5px;
+border: none;
+background-color: white;
+}
 </style>
 <body>
-<%@page import="java.io.*, java.util.*, java.sql.*"%>
-<%!
-private Connection conn = null;
-public void jspInit(){
-	try {
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "banking", "banking");
-	System.out.println("Connected:" + conn);
-	} catch (ClassNotFoundException e) {
-	System.err.println("ShowLogin_Servlet->unable to load the JDBC Driver...");
-	} catch (SQLException e) {
-	System.err.println("ShowLogin_Servlet->unable to establish the database connection...");
-	}
-}
-%>
 <div class="Mainheader" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
-<img src="images/lti_logo.png">
+<img src="images/lti_logo.jpeg">
 </div>
 <div class="mainContent">
 <div class="leftsidenav">
-<div class="navOptions"><a href="accountDetail.jsp" >Account Detail</a></div>
-<div class="navOptions"><a href="accountSummary.jsp">Account Summary</a></div>
-<div class="navOptions"><a href="fundTransfer.jsp">Fund Transfer</a></div>
-<div class="navOptions" style="background-color: #292e7d; border-radius: 5px; border: 1px solid #f1f1f1;"><a href="accountStatement.jsp" style="color: #f1f1f1;">Account Statement</a></div>
+<div class="navOptions"><form action="dashboardaccDetail.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Account Detail"></form></div>
+<div class="navOptions"><form action="dashboardaccSummary.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Account Summary"></form></div>
+<div class="navOptions"><form action="dashboardfundTransfer.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Fund Transfer"></form></div>
+<div class="navOptions" style="background-color: #292e7d;"><form action="dashboardaccStatement.lti" method="post"><input class="sidebtn" type="submit" name="submit" value="Account Statement"></form></div>
 </div>
 <div class="rightsidenav">
 <div class="navbar">
@@ -63,9 +58,7 @@ public void jspInit(){
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="accountDetail.jsp">Account Details</a>
     </div>
   </div> 
   <div class="dropdown">
@@ -73,9 +66,7 @@ public void jspInit(){
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a href="forgot-password.jsp">Forgot Password</a>
     </div>
   </div>
 </div>
@@ -91,35 +82,15 @@ To Date: <input type="date" name="toDate" required><br /><br />
 <th>Account Type</th>
 <th>Balance</th>
 </tr>
-<%
-String SQL = "SELECT * FROM USER_DETAILS";
-StringBuffer strHTML = new StringBuffer();
-
-try {
-PreparedStatement pstat = conn.prepareStatement(SQL);
-
-ResultSet rs = pstat.executeQuery();
-while (rs.next()) {
-int accNo = rs.getInt("ACCOUNTNO");
-int bal = rs.getInt("BALANCE");
-String name = rs.getString("FNAME");
-%>
+<c:forEach items="${ userdetails }" var="users">
 <tr>
-<td><input type="radio" name="accountNo" value="<%= accNo %>"></td>
-<td><%= accNo %></td>
-<td><%= name %></td>
+<td><input type="radio" name="accountNo" value="${ users.accountNo }"></td>
+<td>${ users.accountNo }</td>
+<td>${ users.firstname }</td>
 <td>Savings</td>
-<td><%= bal %></td>
+<td>${ users.balance }</td>
 </tr>
-<%
-}
-%>
-<%
-rs.close();
-} catch (SQLException e) {
-e.printStackTrace();
-}
-%>
+</c:forEach>
 </table>
 <input class="submitbtn" type="submit" value="Get Statement">
 </form>

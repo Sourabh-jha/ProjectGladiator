@@ -15,10 +15,10 @@
     </div>
     <div class="rightdiv">
         <div style="width: 100%; text-align: right;">
-            <a href="#"><p class="closebtn">+</p></a>
+            <a href="home.jsp"><p class="closebtn">+</p></a>
         </div>
         <div style="text-align: center;">
-        <h1>Registraton</h1>
+        <h1>Registration</h1>
         <form action="registration.lti" method="post">
             <input type="text"  name="username" style="margin-top: 20px;" placeholder="Username" required><br> <br /> 
             <input type="password" name="password" placeholder="Password" required><br> <br /> 

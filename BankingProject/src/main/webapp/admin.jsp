@@ -23,7 +23,7 @@ cursor: pointer;
 </head>
 <body>
 <div class="Mainheader" style="background-image: linear-gradient(to right, #f3751f , #292e7d);">
-<img src="images/lti_logo.png">
+<img src="images/lti_logo.jpeg">
 </div>
 <div class="mainContent">
 <h1>${ approved }</h1>
