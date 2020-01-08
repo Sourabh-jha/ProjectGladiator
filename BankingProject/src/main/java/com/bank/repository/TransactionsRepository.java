@@ -18,12 +18,12 @@ public class TransactionsRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	Transactions trans = null;
 	
 	@Transactional
 	public Transactions fundTransfer(Transactions transaction) {
 		try {
-			trans = entityManager.merge(transaction);
+			Transactions trans = entityManager.merge(transaction);
+			System.out.println(trans.getTransID());
 			return trans;
 		}
 		catch(Exception e) {

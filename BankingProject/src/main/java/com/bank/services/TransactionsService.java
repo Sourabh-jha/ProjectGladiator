@@ -29,7 +29,7 @@ public class TransactionsService {
 		transaction.setToAccount(transactionRepo.fetchAccount(fundTransferDto.getToAccountNo()));
 		transaction.setAmount(fundTransferDto.getAmount());
 		transaction.setRemark(fundTransferDto.getRemark());
-		transaction.setApproved("NO");
+		transaction.setApproved("YES");
 		if(mode.equals("WithinBank")) {
 			return transaction;
 		}
@@ -78,7 +78,7 @@ public class TransactionsService {
 				return transaction;
 			}
 			else {
-				System.out.println("MAXIMUM TANSACTION LIMIT IS RS 2 LAKH!!");
+				System.out.println("MAXIMUM TRANSACTION LIMIT IS RS 2 LAKH!!");
 				return null;
 			}
 		}
@@ -103,6 +103,9 @@ public class TransactionsService {
 				System.out.println("SUCCESS TRANSFER!!");
 				Transactions lastTrans = transactionRepo.extractLastTransaction();
 				return lastTrans;
+			}
+			else {
+				return null;
 			}
 		}
 		return null;

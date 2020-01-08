@@ -89,7 +89,7 @@ public void jspInit(){
 </div>
 <div class="content">
 <h2>Initiate NEFT Payment</h2>
-<form action="fundTransafer.lti" method="post" id="fundTransfer">
+<form action="fundTransfer.lti" method="post" id="fundTransfer">
 <table class="detailTable">
 <tr>
 <td class="tdWidth">Mode</td>
